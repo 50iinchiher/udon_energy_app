@@ -33,7 +33,8 @@ export function AnimatedSplashOverlay() {
     },
   });
 
-  const image = <Image style={styles.image} source={require('@/assets/images/expo-logo.png')} />;
+  // Same size as the native splash image (imageWidth 120 in app.json), so nothing jumps when it hides.
+  const image = <Image style={styles.splashImage} contentFit="contain" source={require('@/assets/images/thermotrack-splash.png')} />;
 
   return animate ? (
     <Animated.View
@@ -131,6 +132,10 @@ const styles = StyleSheet.create({
     width: 76,
     height: 71,
   },
+  splashImage: {
+    width: 120,
+    height: 120,
+  },
   background: {
     borderRadius: 40,
     experimental_backgroundImage: `linear-gradient(180deg, #3C9FFE, #0274DF)`,
@@ -140,7 +145,7 @@ const styles = StyleSheet.create({
   },
   splashOverlay: {
     ...StyleSheet.absoluteFill,
-    backgroundColor: '#208AEF',
+    backgroundColor: '#10151b',
     alignItems: 'center',
     justifyContent: 'center',
     zIndex: 1000,
